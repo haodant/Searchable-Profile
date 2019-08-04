@@ -1,37 +1,43 @@
 import React, { Component } from 'react';
 import './Student.css';
+import ExpandedList from './ExpandedList';
 
-const Student = ({ students }) => {
+class Student extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      students: [],
-      search: ''
+      expanded: false,
+      symbol: "+"
     };
   }
+
+  handleExpand = () => {
+    this.setState({ expanded: !this.state.expanded });
+    if (this.state.expanded) {
+      this.setState({ symbol: "+" })
+    } else {
+      this.setState({ symbol: "-" })
+    }
+  }
+
   render() {
-    return (
-      <ul className="students">
-      { (students.length > 0) ? students.map( (student, index) => {
-        const average = student.grades.reduce((p,c,_,a) => p + c/a.length,0)
-        return (
-          <li className="student" key={student.id}>
-            <img src={student.pic} alt='' className="student_img"/>
-            <div className="student_name">
-              <h2>{`${student.firstName.toUpperCase()} ${student.lastName.toUpperCase()}`}</h2>
-            </div>
-            <div className="student_details">
-              <p>{`Email: ${student.email}`}</p>
-              <p>{`Company: ${student.company}`}</p>
-              <p>{`Skill: ${student.skill}`}</p>
-              <p>{`Average: ${average}%`}</p>
-            </div>
-          </li>
-        )
-      }) : <div>Student information is loading...</div>}
-      </ul>
-      )
+          const average = this.props.student.grades.reduce((p,c,_,a) => p + c/a.length,0)
+          return (
+            <li className="student" key={this.props.student.id}>
+              <img src={this.props.student.pic} alt='' className="student_img"/>
+              <div className="student_name">
+                <h2>{`${this.props.student.firstName.toUpperCase()} ${this.props.student.lastName.toUpperCase()}`}</h2>
+                <button onClick={this.handleExpand}>{this.state.symbol}</button>
+              </div>
+              <div className="student_details">
+                <p>{`Email: ${this.props.student.email}`}</p>
+                <p>{`Company: ${this.props.student.company}`}</p>
+                <p>{`Skill: ${this.props.student.skill}`}</p>
+                <p>{`Average: ${average}%`}</p>
+                {this.state.expanded ? <ExpandedList grades={this.props.student.grades}/> : null}
+              </div>
+            </li>
+          )
     }
 }
 

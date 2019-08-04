@@ -2,10 +2,10 @@
   padding-left: 2.5rem;
   margin: 0;
   display: grid;
-  grid-template-columns: min-content max-content;
+  grid-template-columns: min-content 1fr;
   grid-template-rows: min-content 1fr;
   grid-column-gap: 2rem;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 0.4px #f2f2f2 solid;
 }
 
@@ -17,6 +17,29 @@
   border: 0.4px grey solid;
 }
 
+.student_name {
+  position:relative;
+  width: 100%;
+  height: auto;
+}
+button {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  font-size: 4rem;
+  color: #999999;
+}
+
+button:focus {
+  outline: none;
+}
 .student_details {
   margin-left: 2rem;
+}
+
+.gradeList {
+  padding: 1rem 0;
 }

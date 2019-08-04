@@ -33,7 +33,12 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <input className="searchbar" type="text" placeholder="Search by name" value={this.state.search} onChange={this.updateSearch} />
-          <Student students = {filteredList}/>
+          <ul className="students">
+            { (filteredList.length > 0) ?
+              filteredList.map(student => {
+                return <Student student = {student} key={student.id}/>
+              }) : <div>Student information is loading...</div>}
+          </ul>
         </div>
       </div>
     );
