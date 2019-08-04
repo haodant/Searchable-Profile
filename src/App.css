@@ -1,0 +1,47 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  width: 60vw;
+  max-height: 80%;
+  background-color: white;
+  overflow: scroll;
+  border-radius: 1.5%;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, .3);
+}
+
+.searchbar {
+  margin: 1rem;
+  width: 100%;
+  font-size: 1.6rem;
+  line-height: 2;
+  border: none;
+  border-bottom: 1px #f2f2f2 solid;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+h2 {
+  font-size: 3.6rem;
+  line-height: 0.1;
+}
+
+p {
+  font-size: 1.6rem;
+  color: #5c5c5c;
+  font-weight: 300;
+  line-height: 0.4;
+}

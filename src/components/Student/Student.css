@@ -1,0 +1,22 @@
+.student {
+  padding-left: 2.5rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-template-rows: min-content 1fr;
+  grid-column-gap: 2rem;
+  align-items: center;
+  border-bottom: 0.4px #f2f2f2 solid;
+}
+
+.student_img {
+  grid-row: 1 / span 2;
+  width: 12rem;
+  border-radius: 50%;
+  display: block;
+  border: 0.4px grey solid;
+}
+
+.student_details {
+  margin-left: 2rem;
+}
