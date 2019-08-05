@@ -19,7 +19,7 @@ class App extends Component {
     .then(json => json.students)
     .then(students => {
       students.map(student => student.tags = []);
-      this.setState({ 'students': students });
+      this.setState({ students });
     })
   }
 
@@ -40,15 +40,15 @@ class App extends Component {
     });
 
     this.setState({
-      'students': students
+      students
     });
   }
 
   render() {
     let filteredList = this.state.students.filter(
       student => {
-        let isSearchByName = student.firstName.indexOf(this.state.search) !== -1 || student.lastName.indexOf(this.state.search) !== -1;
-        let isSearchByTag = this.state.searchTag.length > 0 ? student.tags.indexOf(this.state.searchTag) !== -1 : true;
+        let isSearchByName = student.firstName.toLowerCase().indexOf(this.state.search) !== -1 || student.lastName.toLowerCase().indexOf(this.state.search) !== -1;
+        let isSearchByTag = this.state.searchTag.length > 0 ? student.tags.join('').indexOf(this.state.searchTag) !== -1 : true;
         return isSearchByTag && isSearchByName
       }
     );
@@ -61,7 +61,7 @@ class App extends Component {
           <ul className="students">
             { (filteredList.length > 0) ?
               filteredList.map(student => {
-                {/* use addTagHandler to allow child component to update state here, would be easier with redux to manage data, but the app is not complex so using this way here */}
+                {/* use addTagHandler to allow child component to update state here, would be easier with redux to manage data, but the app is not complex so using */}
                 return <Student student = {student} key={student.id} addTagHandler={this.addTagHandler}/>
               }) : <div>Student information is loading...</div>}
           </ul>

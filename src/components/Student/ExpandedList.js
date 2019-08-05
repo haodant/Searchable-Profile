@@ -47,8 +47,9 @@ class ExpandedList extends Component {
               })
             }
           </div>
-
-          <p>{this.props.tags.join(' ')}</p>
+          { this.props.tags.map(tag => {
+            return <button className="tag">{tag}</button>
+          })}
           <input className="searchbar" type="text" placeholder="Add a tag"  value={this.state.tagInput} onChange={this.updateInputText} onKeyPress={this.handleInputTag}/>
         </div>
       );

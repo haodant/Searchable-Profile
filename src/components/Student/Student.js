@@ -27,7 +27,7 @@ class Student extends Component {
         <img src={this.props.student.pic} alt='' className="student_img"/>
         <div className="student_name">
           <h2>{`${this.props.student.firstName.toUpperCase()} ${this.props.student.lastName.toUpperCase()}`}</h2>
-          <button onClick={this.handleExpand}>{this.state.symbol}</button>
+          <button className="symbol" onClick={this.handleExpand}>{this.state.symbol}</button>
         </div>
         <div className="student_details">
           <p>{`Email: ${this.props.student.email}`}</p>
