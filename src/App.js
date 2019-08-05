@@ -8,7 +8,7 @@ class App extends Component {
 
     this.state = {
       students: [],
-      search: '',
+      searchName: '',
       searchTag: ''
     };
   }
@@ -23,8 +23,8 @@ class App extends Component {
     })
   }
 
-  updateSearch = (e) => {
-    this.setState({ search: e.target.value })
+  updateSearchByName = (e) => {
+    this.setState({ searchName: e.target.value })
   }
 
   updateSearchByTag = (e) => {
@@ -47,7 +47,7 @@ class App extends Component {
   render() {
     let filteredList = this.state.students.filter(
       student => {
-        let isSearchByName = student.firstName.toLowerCase().indexOf(this.state.search) !== -1 || student.lastName.toLowerCase().indexOf(this.state.search) !== -1;
+        let isSearchByName = student.firstName.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1 || student.lastName.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1;
         let isSearchByTag = this.state.searchTag.length > 0 ? student.tags.join('').indexOf(this.state.searchTag) !== -1 : true;
         return isSearchByTag && isSearchByName
       }
@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <input className="searchbar" type="text" placeholder="Search by name" value={this.state.search} onChange={this.updateSearch} />
+          <input className="searchbar" type="text" placeholder="Search by name" value={this.state.searchName} onChange={this.updateSearchByName} />
           <input className="searchbar" type="text" placeholder="Search by tags" value={this.state.searchTag} onChange={this.updateSearchByTag} />
           <ul className="students">
             { (filteredList.length > 0) ?

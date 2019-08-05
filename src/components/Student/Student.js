@@ -24,7 +24,7 @@ class Student extends Component {
     const average = this.props.student.grades.reduce((p,c,_,a) => p + c/a.length,0)
     return (
       <li className="student" key={this.props.student.id}>
-        <img src={this.props.student.pic} alt='' className="student_img"/>
+        <img src={this.props.student.pic} alt={this.props.student.firstName} className="student_img"/>
         <div className="student_name">
           <h2>{`${this.props.student.firstName.toUpperCase()} ${this.props.student.lastName.toUpperCase()}`}</h2>
           <button className="symbol" onClick={this.handleExpand}>{this.state.symbol}</button>
@@ -34,7 +34,11 @@ class Student extends Component {
           <p>{`Company: ${this.props.student.company}`}</p>
           <p>{`Skill: ${this.props.student.skill}`}</p>
           <p>{`Average: ${average}%`}</p>
-          {this.state.expanded ? <ExpandedList grades={this.props.student.grades} tags={this.props.student.tags} id={this.props.student.id} addTagHandler={this.props.addTagHandler}/> : null}
+          {
+            this.state.expanded ?
+            <ExpandedList grades={this.props.student.grades} tags={this.props.student.tags} id={this.props.student.id} addTagHandler={this.props.addTagHandler}/> :
+            null
+          }
         </div>
       </li>
     )
