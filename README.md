@@ -1,4 +1,4 @@
-This is a project build for Hatchways assessment.
+This is a single-page web application to display people's profiles.
 
 ## How to run the project locally
 
@@ -20,10 +20,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 About the app
 ---
 
-A single-page web application to display the students' profiles. Each student's profile can be expanded to display their test result, by clicking the "+" symbol at the top-right corner. Tags can be added to each student in the expanded view. In addition, user can search students by their name (both first and last name) and the tags assigned, using the first search frame and the second search frame, respectively.
+A single-page web application to display people's profiles. Each person's profile can be expanded to display their test result, by clicking the "+" symbol at the top-right corner. Tags can be added to each person in the expanded view. In addition, user can search people by their name (both first and last name) and the tags assigned, using the first search frame and the second search frame, respectively.
 
 ### User Story
-- User can expand each student's profile to see test result and tags
+- User can expand each people's profile to see test result and tags
 - User can add tags in the expanded profile
-- User can search students by their name  
-- User can search students by their tags
+- User can search people by their name  
+- User can search people by their tags
