@@ -14,9 +14,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://www.hatchways.io/api/assessment/students')
+    fetch('https://my-json-server.typicode.com/haodant/dummy-data/students')
     .then(res => res.json())
-    .then(json => json.students)
     .then(students => {
       students.map(student => student.tags = []);
       this.setState({ students });
