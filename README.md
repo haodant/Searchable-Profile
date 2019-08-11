@@ -22,6 +22,8 @@ About the app
 
 A single-page web application to display people's profiles. Each person's profile can be expanded to display their test result, by clicking the "+" symbol at the top-right corner. Tags can be added to each person in the expanded view. In addition, user can search people by their name (both first and last name) and the tags assigned, using the first search frame and the second search frame, respectively.
 
+Profile API is mocked up with My JSON Server, see https://github.com/haodant/dummy-data/ for more detail.
+
 ### User Story
 - User can expand each people's profile to see test result and tags
 - User can add tags in the expanded profile
