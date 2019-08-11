@@ -1,4 +1,5 @@
 This is a single-page web application to display people's profiles.
+Website: https://thirsty-ardinghelli-4bf729.netlify.com
 
 ## How to run the project locally
 
